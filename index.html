@@ -32,7 +32,7 @@
 
   /* Header */
   .top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; padding-top: 20px; padding-bottom: 20px; }
-  .logo { font-family: var(--display); font-weight: 600; font-size: 30px; letter-spacing: -0.03em; text-decoration: none; flex-grow: 1; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 30px; letter-spacing: -0.03em; text-decoration: none; flex-grow: 1; }
   .top nav { display: flex; flex-wrap: wrap; gap: 0 24px; font-size: 15px; }
   .top nav a { text-decoration: none; padding: 12px 0; }
 
@@ -115,7 +115,8 @@
   .foot a { color: var(--muted); }
 
   @media (max-width: 640px) {
-    .phones { min-height: 0; transform: scale(0.82); transform-origin: top center; margin-bottom: -90px; }
+    .phones { min-height: 0; flex-basis: 100%; }
+    .phone-back { display: none; }
     .mags { padding: 28px 20px; }
     .cover { width: 96px; height: 128px; } .cover.mid { width: 108px; height: 146px; }
     .cover b, .cover.mid b { font-size: 15px; }
@@ -125,7 +126,7 @@
 <body>
 
 <header class="wrap top">
-  <a class="logo" href="./">quire</a>
+  <a class="logo" href="./"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 108 108"><rect width="108" height="108" rx="24" fill="#1B1A17"/><circle cx="52" cy="51" r="19" fill="none" stroke="#F7F3EC" stroke-width="10"/><path d="M60 63 L78 63 L78 81 Z" fill="#D9472B"/><path d="M60 63 L78 81 L60 81 Z" fill="#F7F3EC"/></svg>quire</a>
   <nav aria-label="Main">
     <a href="#how">How it works</a>
     <a href="#features">Features</a>
@@ -141,17 +142,12 @@
       <h1>Any website,<br>as a magazine.</h1>
       <p class="lede">Paste the address of a site you love. Quire finds its articles and lays them out as pages you turn: calm, clean, and made for reading.</p>
       <div class="btns" id="get">
-        <!-- TODO: replace both links once the Play listing and first release exist. -->
-        <a class="btn btn-accent" href="#" data-play>
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17l14-8.5z"/></svg>
-          Get it on Google Play
-        </a>
-        <a class="btn btn-line" href="#" data-apk>
+        <a class="btn btn-accent" href="https://github.com/aadvark/Quire-site/releases/latest/download/quire.apk">
           <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
           Download the APK
         </a>
       </div>
-      <span class="small">Free. No ads, no account, no tracking.</span>
+      <span class="small">Free for Android 8.0 and newer. No ads, no account, no tracking.</span>
     </div>
 
     <div class="phones" aria-hidden="true">
@@ -244,10 +240,9 @@
   <section class="wrap cta">
     <h2>Start your first magazine.</h2>
     <div class="btns">
-      <a class="btn btn-accent" href="#" data-play>Get it on Google Play</a>
-      <a class="btn btn-line" href="#" data-apk>Download the APK</a>
+      <a class="btn btn-accent" href="https://github.com/aadvark/Quire-site/releases/latest/download/quire.apk">Download the APK</a>
     </div>
-    <span class="small">For Android 8.0 and newer. Free to use.</span>
+    <span class="small">Quire checks for new versions itself, so you only install once.</span>
   </section>
 </main>
 
