@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quire — any website, as a magazine</title>
-<meta name="description" content="Quire turns the sites you love into a flippable personal magazine. Free for Android. No ads, no account, no tracking.">
+<meta name="description" content="Quire turns the sites you love into personal magazines you flip through. Top stories, a magazine for every topic, and 1,058 hand-checked sites to start from. Free for Android. No ads, no account, no tracking.">
 <meta property="og:title" content="Quire — any website, as a magazine">
-<meta property="og:description" content="Paste the address of a site you love. Quire finds its articles and lays them out as pages you turn.">
+<meta property="og:description" content="Pick the topics you like or paste any site. Quire mixes the newest articles into magazines you flip through.">
 <meta name="theme-color" content="#F7F3EC">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,6 +88,28 @@
   .step p, .card p { font-size: 16px; line-height: 1.6; color: var(--body); }
   .cards { gap: 20px; }
   .card { flex: 1 1 300px; padding: 28px; border-radius: 16px; background: var(--card); border: 1px solid var(--rule); display: flex; flex-direction: column; gap: 10px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .grid.three { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  @media (min-width: 1000px) { .grid.three { grid-template-columns: repeat(3, 1fr); } }
+  .grid .card { padding: 24px; }
+  .grid .card h3 { font-size: 20px; }
+  .grid .card p { font-size: 15px; }
+  .group { display: flex; flex-direction: column; gap: 18px; }
+  .group-h { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); }
+  .stats { display: flex; flex-wrap: wrap; gap: 12px 36px; }
+  .stat b { display: block; font-family: var(--display); font-weight: 600; font-size: 34px; line-height: 1; color: var(--ink); }
+  .stat span { font-size: 14px; color: var(--muted); }
+  .p-head { display: flex; align-items: center; gap: 5px; }
+  .p-chips { display: flex; gap: 4px; }
+  .p-chips span { font-size: 8px; font-weight: 600; padding: 3px 7px; border-radius: 10px; border: 1px solid var(--rule); color: var(--muted); }
+  .p-chips span.on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .p-cover small { display: block; font-family: var(--sans); font-size: 7px; letter-spacing: 0.12em; opacity: 0.85; margin-bottom: 3px; }
+  .p-cover-dots { display: flex; justify-content: center; gap: 3px; margin-top: -4px; }
+  .p-cover-dots span { width: 4px; height: 4px; border-radius: 2px; background: #CFC6B5; }
+  .p-cover-dots span.on { width: 10px; background: var(--ink); }
+  .p-srcs { display: flex; gap: 6px; }
+  .p-srcs span { width: 22px; height: 22px; border-radius: 11px; background: var(--rule); }
+  .p-srcs span:first-child { border: 1.5px dashed #A79E8E; background: none; }
 
   .mags { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; padding: 40px; border-radius: 20px; background: var(--sepia); }
   .mags-text { flex: 1 1 340px; display: flex; flex-direction: column; gap: 14px; }
@@ -127,7 +149,7 @@
 <body>
 
 <header class="wrap top">
-  <a class="logo" href="./"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 108 108"><rect width="108" height="108" rx="24" fill="#1B1A17"/><path d="M32 24 H63 L76 37 V84 H32 Z" fill="#F7F3EC"/><path d="M63 24 V37 H76 Z" fill="#D9472B"/><circle cx="54" cy="56" r="9.5" fill="none" stroke="#1B1A17" stroke-width="5.5"/><path d="M60.9 62.9 L64.5 66.5" stroke="#1B1A17" stroke-width="6" stroke-linecap="round"/></svg>quire<span class="dot">.</span></a>
+  <a class="logo" href="./"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 108 108"><rect width="108" height="108" rx="24" fill="#1B1A17"/><path d="M32 24 H63 L76 37 V84 H32 Z" fill="#F7F3EC"/><path d="M63 24 V37 H76 Z" fill="#D9472B"/><circle cx="54" cy="56" r="9.5" fill="none" stroke="#1B1A17" stroke-width="5.5"/><path d="M60.9 62.9 L64.5 66.5" stroke="#1B1A17" stroke-width="6" stroke-linecap="round"/></svg><span>quire<span class="dot">.</span></span></a>
   <nav aria-label="Main">
     <a href="#how">How it works</a>
     <a href="#features">Features</a>
@@ -141,7 +163,7 @@
     <div class="hero-text">
       <span class="kicker">A MAGAZINE READER FOR ANDROID</span>
       <h1>Any website,<br>as a magazine.</h1>
-      <p class="lede">Paste the address of a site you love. Quire finds its articles and lays them out as pages you turn: calm, clean, and made for reading.</p>
+      <p class="lede">Pick the topics you like, or paste the address of any site you love. Quire gathers the newest articles, mixes them so no one site takes over, and lays them out as pages you turn: calm, clean, and made for reading.</p>
       <div class="btns" id="get">
         <a class="btn btn-accent" href="https://github.com/aadvark/Quire-site/releases/latest/download/quire.apk">
           <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
@@ -153,16 +175,18 @@
 
     <div class="phones" aria-hidden="true">
       <div class="phone phone-back">
-        <span class="p-logo">quire<span class="dot">.</span></span>
-        <div class="p-cover">The quiet return of the long read</div>
-        <span class="p-label">My magazines</span>
+        <span class="p-head"><svg width="20" height="20" viewBox="0 0 108 108"><rect width="108" height="108" rx="24" fill="#1B1A17"/><path d="M32 24 H63 L76 37 V84 H32 Z" fill="#F7F3EC"/><path d="M63 24 V37 H76 Z" fill="#D9472B"/><circle cx="54" cy="56" r="9.5" fill="none" stroke="#1B1A17" stroke-width="5.5"/><path d="M60.9 62.9 L64.5 66.5" stroke="#1B1A17" stroke-width="6" stroke-linecap="round"/></svg><span class="p-logo">quire<span class="dot">.</span></span></span>
+        <div class="p-chips"><span class="on">Today</span><span>This week</span><span>All</span></div>
+        <div class="p-cover"><span><small>TOP STORIES</small>The quiet return of the long read</span></div>
+        <div class="p-cover-dots"><span class="on"></span><span></span><span></span><span></span></div>
+        <span class="p-label">Sources</span>
+        <div class="p-srcs"><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="p-label">Your magazines</span>
         <div class="p-mags">
           <span style="background: var(--teal)"></span>
           <span style="background: var(--clay)"></span>
-          <span style="border: 1.5px dashed #A79E8E"></span>
+          <span style="background: var(--moss)"></span>
         </div>
-        <div class="p-row"></div>
-        <div class="p-row"></div>
       </div>
       <div class="phone phone-front">
         <span class="p-label">Tide &amp; Swell Journal</span>
@@ -184,18 +208,18 @@
       <div class="steps">
         <div class="step">
           <span class="n">1</span>
-          <h3>Paste a web address</h3>
-          <p>A blog, a news site, a newsletter archive. Or share a link into Quire from any app.</p>
+          <h3>Pick topics, or bring your own sites</h3>
+          <p>On first open, tap the topics you like and Quire follows good sites in each. Or paste any address: a blog, a news site, a newsletter archive.</p>
         </div>
         <div class="step">
           <span class="n">2</span>
-          <h3>Quire finds the articles</h3>
-          <p>It looks for the site's feed, and if there isn't one, reads the site's map or the page itself.</p>
+          <h3>Quire builds your magazines</h3>
+          <p>It finds each site's articles, even without a feed, and mixes them into Top stories and a magazine for every topic you follow.</p>
         </div>
         <div class="step">
           <span class="n">3</span>
-          <h3>Turn the pages</h3>
-          <p>Big photos, varied layouts and clean article text, one swipe at a time.</p>
+          <h3>Flip through</h3>
+          <p>Big photos, ten page layouts and clean article text. Pages flip up like a magazine, or slide sideways if you prefer.</p>
         </div>
       </div>
     </div>
@@ -203,25 +227,91 @@
 
   <section class="wrap section" id="features">
     <h2>Made for reading, not scrolling.</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Bring any site</h3>
-        <p>Follow the small sites you actually read, even ones with no RSS feed.</p>
+    <div class="stats">
+      <div class="stat"><b>1,058</b><span>hand-checked sites to discover</span></div>
+      <div class="stat"><b>20</b><span>topics, from news to surfing</span></div>
+      <div class="stat"><b>10</b><span>page layouts</span></div>
+      <div class="stat"><b>0</b><span>ads, accounts or trackers</span></div>
+    </div>
+
+    <div class="group">
+      <span class="group-h">YOUR FRONT PAGE</span>
+      <div class="grid">
+        <div class="card">
+          <h3>Top stories</h3>
+          <p>Swipe through every fresh article from the last six hours, from all your sites, taking turns so no site crowds the others out.</p>
+        </div>
+        <div class="card">
+          <h3>A magazine for every topic</h3>
+          <p>Each category you follow becomes its own magazine on Home, with its own look. Long-press a cover to see and edit its sites.</p>
+        </div>
+        <div class="card">
+          <h3>Real variety</h3>
+          <p>Issues take one article from every site in turn, in a fresh order each day, so one busy site can't fill your magazine.</p>
+        </div>
+        <div class="card">
+          <h3>Today, This week or All</h3>
+          <p>One switch sets how far back Quire reaches: just today's news, the week's, or everything it still has.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>A Today issue</h3>
-        <p>Everything new from all your sources, newest first, in one magazine.</p>
+    </div>
+
+    <div class="group">
+      <span class="group-h">FINDING SITES</span>
+      <div class="grid">
+        <div class="card">
+          <h3>Bring any site</h3>
+          <p>Follow the small sites you actually read, even ones with no RSS feed. Quire reads the site's map or the page itself.</p>
+        </div>
+        <div class="card">
+          <h3>Discover 1,058 sites</h3>
+          <p>Browse 20 topics and ready-made issues, every site checked for a working feed. Tick several and add them in one go.</p>
+        </div>
+        <div class="card">
+          <h3>Share from any app</h3>
+          <p>Share a link to Quire from your browser or any app, then save the article for later or follow the whole site.</p>
+        </div>
+        <div class="card">
+          <h3>Keep sources healthy</h3>
+          <p>Quire flags sites that can't be reached, fixes ones that moved, and lets you remove the rest at once.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>A calm reader view</h3>
-        <p>Clean text in a serif made for long reading, with light and dark themes. The original is one tap away.</p>
+    </div>
+
+    <div class="group">
+      <span class="group-h">READING YOUR WAY</span>
+      <div class="grid three">
+        <div class="card">
+          <h3>A calm reader view</h3>
+          <p>Clean text in a serif made for long reading. Day, Sepia, Dark or System theme, your text size and font. The original is one tap away.</p>
+        </div>
+        <div class="card">
+          <h3>Flip or slide</h3>
+          <p>Pages fold over at the middle like a magazine, or slide sideways. Tablets and unfolded phones show two-page spreads.</p>
+        </div>
+        <div class="card">
+          <h3>Muted words</h3>
+          <p>Add words or phrases you'd rather not see, and articles that mention them are hidden everywhere.</p>
+        </div>
+        <div class="card">
+          <h3>Search everything</h3>
+          <p>Search your saved articles, or every article on your phone.</p>
+        </div>
+        <div class="card">
+          <h3>Read offline</h3>
+          <p>Issues download on Wi-Fi in the background. Choose how long articles are kept, from a week to three months.</p>
+        </div>
+        <div class="card">
+          <h3>Yours to take with you</h3>
+          <p>Import and export your sites as OPML, and back up or restore everything, settings included.</p>
+        </div>
       </div>
     </div>
 
     <div class="mags">
       <div class="mags-text">
         <h3>Make your own magazines.</h3>
-        <p>Give a magazine a title and a cover, from an article's photo, a plain colour or your own picture. Then add any article to it, from any source.</p>
+        <p>Give a collection a title and a cover, from an article's photo, a plain colour or your own picture. Add any article to it, from any source. Rename it, take out several articles at once, or delete it whenever you like.</p>
       </div>
       <div class="covers" aria-hidden="true">
         <div class="cover" style="background: var(--teal); transform: rotate(-3deg)"><small>quire.</small><b>Weekend Surf</b></div>
@@ -249,7 +339,7 @@
 
 <footer>
   <div class="wrap foot">
-    <span class="logo">quire<span class="dot">.</span></span>
+    <span class="logo"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 108 108"><rect width="108" height="108" rx="24" fill="#1B1A17"/><path d="M32 24 H63 L76 37 V84 H32 Z" fill="#F7F3EC"/><path d="M63 24 V37 H76 Z" fill="#D9472B"/><circle cx="54" cy="56" r="9.5" fill="none" stroke="#1B1A17" stroke-width="5.5"/><path d="M60.9 62.9 L64.5 66.5" stroke="#1B1A17" stroke-width="6" stroke-linecap="round"/></svg><span>quire<span class="dot">.</span></span></span>
     <span class="by">Made in Singapore by Lee Wen Yang (Mike)</span>
     <a href="privacy.html">Privacy policy</a>
     <a href="#">Terms of use</a>
